@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test" : "npx playwright test tests/WebApiStorageState06.spec.js --headed"
+    "test": "npx playwright test tests/WebApiStorageState06.spec.js --headed"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.2.3"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }

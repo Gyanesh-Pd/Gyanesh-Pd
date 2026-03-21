@@ -12,7 +12,7 @@ test.beforeAll(async () => {
     //Login apicontext(CALL(url), data)
     const apiContext = await request.newContext();
 
-    //create object of ApiUtils
+    //Create object of ApiUtils
     const apiUtils = new ApiUtils(apiContext, loginPayLoad);
 
     response = await apiUtils.createOrder(orderPayLoad);
@@ -21,7 +21,6 @@ test.beforeAll(async () => {
 
 
 test('Client App Login', async ({ page }) => {
-
 
     await page.addInitScript(value => {
         window.localStorage.setItem('token', value);
