@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/ExcelValidations10.spec.js --headed"
+    "regression": "npx playwright test",
+    "UiTests" :  "npx playwright test --grep @Web",
+    "ApiTests" : "npx playwright test --grep @Api",
+    "SafariConfig" :  "npx playwright test --config playwright.config1.js --project=Safari",
+    "executionExample" : "In terminal Use 'npm run UiTests' for execution"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +15,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.2.3"
+    "@types/node": "^25.2.3",
+    "allure-playwright": "^3.6.0"
   },
   "dependencies": {
     "exceljs": "^4.4.0"

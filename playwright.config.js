@@ -20,14 +20,33 @@ const config = ({
 
   reporter: 'html',
 
+  // project: [
+  //   {
+  //     name: 'chrome',
   use: {
     browserName: 'chromium',
     headless: false,
-
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    // ignoreHttpsErrors: true,
+    // permissions: ['geolocation'],
+    trace: 'retain-on-failure',
+    // viewport: { width: 1080, height: 720 }
   },
+  // },
+  // {
+  //   name: 'safari',
+  //   use: {
+  //     browserName: 'webkit',
+  //     headless: true,
+  //     screenshot: 'on',
+  //     trace: 'off',
+  //     ...devices['iPhone 13 Mini']
+  //   },
+  // }
 
+  // ]
 
 });
-
 module.exports = config;
 

@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test')
+const { customTest } = require('../utils/test-base')
 const { POManager } = require('../pageObjects/POManager')
 const testdata = JSON.parse(JSON.stringify(require('../utils/placeOrderTestData.json')));
 
@@ -34,4 +35,23 @@ for (const dataset of testdata) {
         expect(orderId.includes(await orderHistoryPage.getOrderId())).toBeTruthy();
 
     });
+
 }
+
+customTest.only('Custom Fixture test', async ({ page, testDataForOrder }) => {
+
+    const poManager = new POManager(page);
+
+    const loginPage = poManager.getLoginPage();
+    await loginPage.goto();
+    await loginPage.validateLogin(testDataForOrder.email, testDataForOrder.password);
+
+    const dashboardPage = poManager.getDashboardPage();
+    await dashboardPage.searchProductAndAddToCart(testDataForOrder.productName);
+    await dashboardPage.navigateToCart();
+
+    const cartPage = poManager.getCartPage();
+    // await page.pause();
+    await cartPage.verifyProductIsDisplayed(testDataForOrder.productName);
+    await cartPage.checkout1();
+});
